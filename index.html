@@ -8,7 +8,7 @@
     </head>
     <body>
     <div id="wrapper">
-		<form class="form" method="POST">
+		<form class="form" method="POST" action="main.php">
 			<h2>Contact US</h2>
 			<input type="text" name="name" placeholder="Name">
 			<input type="email" name="email" placeholder="Email Address">
@@ -16,31 +16,6 @@
 			<input type="text" name="subject" placeholder="Subject">
 			<textarea name="body" placeholder="Type your message here..."></textarea>
 			<button type="submit" name="submit">Submit</button>
-			<?php
-if(isset($_POST['submit'])){
-    $to = "aishant46@gmail.com";
-
-
-
-    $name = $_POST['name'];
-    $email= $_POST['email'];
-    $phone= $_POST['phone'];
-    $subject= $_POST['subject'];
-    $body= $_POST['body'];
-    $headers = 'From: '.$email . "\r\n";
-
-
-    $body = "name : ".$name. "\r\n" .
-    		"Phone : ".$phone. "\r\n" .
-    		"Message : " . $body;
-    if(mail($to, $subject, $body , $headers)){
-        echo "Mail Sent!";
-    }else{
-         echo "Failed To Send Mail";
-    }
-}
-
-?>
 		</form>
 	</div>
     </body>
